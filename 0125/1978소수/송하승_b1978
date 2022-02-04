@@ -1,0 +1,49 @@
+package bakjoon_Q;
+
+import java.util.Scanner;
+
+public class Q_1978 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in); // 입출력 함수
+
+		int N = sc.nextInt(); // 진행할 테스트 횟수
+
+		int count = 0; // 카운트 초기화
+
+		for (int i = 0; i < N; i++) { // N번까지 반복!
+
+			boolean is_Prime = true; // 소수가 맞다고 가정하면, (반복문 안에서 is_Prime 초기화)
+
+			int num = sc.nextInt(); // 입력받은 수
+
+			// 0, 1, 음수는 소수가 아니다.
+			if (num <= 1) {
+				continue; // 넘어간다.
+				
+			}
+
+			// 2 이상의 수, 2 이상의 수로 나누었을 때 나누어 떨어지면 소수가 아니다.
+			// 나누어 떨어지지 않으면 소수다.
+			for (int j = 2; j < num; j++) {
+				if (num % j == 0) {
+					is_Prime = false; // 소수가 아니다.
+					break; // 반복문 빠져나가기.
+
+				}
+
+			}
+
+			if (is_Prime) { // 소수가 맞다면,
+				count++; // 카운트 증가
+
+			}
+
+		}
+		sc.close();
+
+		System.out.println(count); // 소수의 개수 출력
+
+	}
+
+}
