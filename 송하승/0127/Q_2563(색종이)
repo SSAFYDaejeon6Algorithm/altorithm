@@ -1,0 +1,69 @@
+package bakjoon_Q;
+
+import java.util.Scanner;
+
+public class Q_2563 {
+
+	public static void main(String[] args) {
+
+		// 첫째 줄 : 색종이의 수
+		// 둘째 줄 : 두 개의 자연수
+		// 첫 번째 자연수 : 색종이의 왼쪽 변 - 도화지의 왼쪽 변 사이의 거리
+		// 두 번째 자연수 : 색종이의 아래쪽 변 - 도화지의 아래쪽 변 사이의 거리
+		// 색종이의 수는 100 이하, 예외는 없다.
+
+		Scanner sc = new Scanner(System.in); // 입출력 함수
+
+		int num = sc.nextInt(); // 입력할 색종이 개수
+
+		int[][][] map = new int[100][100][100]; // 3차원 배열 선언 및 초기화 : 행 : 100, 열 : 100, 높이 : 100
+
+		int area = 0; // 넓이 초기화
+
+		// 입력할 색종이 개수만큼 횟수를 반복해서 (x, y, z) 좌표를 입력한다.
+		for (int i = 0; i < num; i++) {
+			int X = sc.nextInt(); // X 좌표 값 입력
+			int Y = sc.nextInt(); // Y 좌표 값 입력
+			int Z = sc.nextInt(); // Z 좌표 값 입력
+
+			// if) 좌표 map[a][b] = 1
+			// map[0][0] [0][1] [0][2] ... [0][9] // 10개
+			// map[1][0] [1][1] [1][2] ... [1][9] // 10개
+			// map[2][0] // 10개
+			// ...
+			// map[9][0] ... [9][9] // 10개
+			// for문을 돌리면 모든 좌표의 합 = 100
+
+			for (int a = X; a < X + 10; a++) { // 행
+				for (int b = Y; b < Y + 10; b++) { // 열
+					for (int c = Z; c < Z + 10; c++) { // 높이
+						map[a][b][c] = 1; // (a, b, c) 좌표의 넓이가 1이다.
+
+					}
+
+				}
+
+			}
+
+		}
+		sc.close();
+
+		// 도화지 넓이만큼 반복문을 돌려서, 한 번이라도 이용된 적이 있는 단위 면적(1,1)은 카운트 증가
+		for (int i = 0; i < 100; i++) { // 행
+			for (int j = 0; j < 100; j++) { // 열
+				for (int k = 0; k < 100; k++) { // 높이
+					if (map[i][j][k] == 1) { // if (a, b, c) 좌표의 넓이가 1이면,
+						area++; // 카운트 증가 = 색종이 검은 영역의 넓이
+
+					}
+
+				}
+
+			}
+
+		}
+		System.out.println(area);
+
+	}
+
+}
