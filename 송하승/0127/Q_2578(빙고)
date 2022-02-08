@@ -1,0 +1,123 @@
+package bakjoon_Q;
+
+import java.util.Scanner;
+
+public class Q_2578 {
+
+	static int[][] bingo = new int[5][5]; // 5*5 빙고판
+
+	static int total_count; // 빙고 개수
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in); // 입출력 함수
+
+		int num = 0; // 사회자가 부르는 빙고 숫자
+
+		for (int i = 0; i < bingo.length; i++) { // 행
+			for (int j = 0; j < bingo.length; j++) { // 열
+				bingo[i][j] = sc.nextInt(); // 철수 : (5*5 빙고판 숫자 입력)
+
+			}
+
+		}
+
+		// 반복문을 25번 돌려서, 사회자가 부르는 숫자를 지속적으로 체크한다.
+		for (int n = 1; n < 25; n++) {
+			num = sc.nextInt(); // 사회자 : (5*5 빙고판 숫자 입력)
+			for (int x = 0; x < bingo.length; x++) { // 행
+				for (int y = 0; y < bingo.length; y++) { // 열
+					if (bingo[x][y] == num) { // 입력 숫자가 사회자가 부르는 빙고 숫자와 같으면
+						bingo[x][y] = 0; // 입력 숫자를 0이라고 생각한다.
+
+					}
+
+				}
+
+			}
+			row_check(); // 행 체크
+			col_check(); // 열 체크
+			left_diagonal_check(); // 왼쪽 대각선 체크
+			right_diagonal_check(); // 오른쪽 대각선 체크
+
+			if (total_count >= 3) { // 누적 빙고 개수가 3개 이상이면,
+				System.out.println(n); // 사회자가 몇 번째 수를 부르는지 출력
+				break;
+
+			}
+			total_count = 0; // 빙고 개수 초기화
+
+		}
+
+	}
+
+	private static void row_check() { // 행 체크
+		for (int i = 0; i < bingo.length; i++) {
+			int zeroCount = 0; // 제로카운트 초기화
+			for (int j = 0; j < bingo.length; j++) {
+				if (bingo[i][j] == 0) { // 입력 값이 0일 때, (빙고 숫자가 1번 같으면)
+					zeroCount++; // 제로카운트 UP
+
+				}
+
+			}
+			if (zeroCount == 5) { // (빙고 숫자가 5번 전부 같으면)
+				total_count++; // 빙고 개수 1개 증가
+
+			}
+
+		}
+
+	}
+
+	private static void col_check() { // 열 체크
+		for (int i = 0; i < bingo.length; i++) {
+			int zeroCount = 0; // 제로카운트 초기화
+			for (int j = 0; j < bingo.length; j++) {
+				if (bingo[j][i] == 0) { // 입력 값이 0일 때, (빙고 숫자가 1번 같으면)
+					zeroCount++; // 제로카운트 UP
+
+				}
+
+			}
+			if (zeroCount == 5) { // (빙고 숫자가 5번 전부 같으면)
+				total_count++; // 빙고 개수 1개 증가
+
+			}
+
+		}
+
+	}
+
+	private static void left_diagonal_check() { // 왼쪽 대각선 체크
+		int zeroCount = 0; // 제로카운트 초기화
+		for (int i = 0; i < bingo.length; i++) {
+			if (bingo[i][i] == 0) { // 입력 값이 0일 때, (빙고 숫자가 1번 같으면)
+				zeroCount++; // 제로카운트 UP
+
+			}
+
+		}
+		if (zeroCount == 5) { // (빙고 숫자가 5번 전부 같으면)
+			total_count++; // 빙고 개수 1개 증가
+
+		}
+
+	}
+
+	private static void right_diagonal_check() { // 오른쪽 대각선 체크
+		int zeroCount = 0; // 제로카운트 초기화
+		for (int j = 0; j < bingo.length; j++) {
+			if (bingo[j][4 - j] == 0) { // 입력 값이 0일 때, (빙고 숫자가 1번 같으면)
+				zeroCount++; // 제로카운트 UP
+
+			}
+
+		}
+		if (zeroCount == 5) { // (빙고 숫자가 5번 전부 같으면)
+			total_count++; // 빙고 개수 1개 증가
+
+		}
+
+	}
+
+}
