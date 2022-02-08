@@ -1,0 +1,29 @@
+package bakjoon_Q;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Q_2605 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in); // 입출력 함수
+
+		int N = sc.nextInt(); // 반복할 테스트 횟수 -> N에 저장
+
+		ArrayList<Integer> list = new ArrayList<>(); // Arraylist 객체 생성
+
+		for (int i = 0; i < N; i++) {
+			int num = sc.nextInt();
+
+			if (num == 0)
+				list.add(i + 1);
+			else
+				list.add(list.size() - num, i + 1);
+		}
+
+		for (int i : list)
+			System.out.print(i + " ");
+
+	}
+
+}
