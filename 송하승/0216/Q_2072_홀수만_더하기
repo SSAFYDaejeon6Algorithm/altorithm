@@ -1,0 +1,38 @@
+package Prof_recommendation;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Q_2072_홀수만_더하기 {
+	static final int N = 10; // 정적 변수(정수) 선언
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in)); // 입출력 함수 선언
+
+		// 입력
+		int TC = Integer.parseInt(br.readLine()); // 반복할 테스트 횟수
+
+		for (int tc = 1; tc <= TC; tc++) { // 반복할 테스트 횟수만큼
+			StringTokenizer st = new StringTokenizer(br.readLine()); // 문자열 띄어쓰기 메서드 선언
+
+			// 입력
+			int sum = 0; // 합계 초기화
+
+			for (int i = 1; i <= N; i++) { // N번 반복
+				int num = Integer.parseInt(st.nextToken()); // 숫자 입력 받기
+
+				if (num % 2 == 1) { // 입력 받은 숫자 num을 2로 나눈 나머지가 1(= 홀수)이면,
+					sum += num; // 합계 = 입력 받은 숫자(홀수)의 누적 합
+
+				}
+
+			}
+			System.out.println("#" + tc + " " + sum); // 합계 출력
+
+		}
+
+	}
+
+}
