@@ -1,0 +1,34 @@
+package Prof_recommendation;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Q_2043_서랍의_비밀번호 {
+	static int P; // 정적 변수 선언
+	static int K; // 정적 변수 선언
+	static int cnt; // 카운트 선언
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in)); // 입출력 함수 선언
+
+		String line = br.readLine(); // 한 줄 통으로 읽어서 문자열로 저장
+
+		StringTokenizer st = new StringTokenizer(line); // 문자열 띄어쓰기 메서드 선언
+
+		P = Integer.parseInt(st.nextToken()); // 정수 P 입력 받기
+
+		K = Integer.parseInt(st.nextToken()); // 정수 K 입력 받기
+
+		cnt = 0; // 카운트 초기화
+
+		for (int i = K; i <= P; i++) { // K부터 P까지 반복
+			cnt++; // 카운트 증가
+
+		}
+		System.out.print(cnt); // 카운트 출력
+
+	}
+
+}
