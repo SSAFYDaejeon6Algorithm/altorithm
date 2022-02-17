@@ -1,0 +1,29 @@
+package Prof_recommendation;
+
+import java.util.Scanner;
+
+public class Q_2058_자릿수_더하기2 {
+	static int quo, rem, sum; // 정적 변수(정수) 선언
+	static final int digit = 4; // 자릿수 = 4자리
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in); // 입출력 함수 선언
+
+		int N = sc.nextInt(); // N 입력 받기
+
+		// Ex) 6789
+		sum = 0; // 합계 초기화
+
+		for (int i = 1; i <= digit; i++) { // 자릿수만큼 반복
+			quo = N / 10; // N을 10으로 나눈 몫을 quo에 저장 // quo = 678 -> 67 -> 6 -> 0
+			rem = N % 10; // N을 10으로 나눈 나머지를 rem에 저장 // 9 -> 8 -> 7 - > 6
+			N = quo; // 그 몫을 다시 N에 저장 // N = 678 -> 67 -> 6 -> 0
+//			System.out.print(rem + " "); // 나머지 출력 : 9 -> 8 -> 7 -> 6
+			sum += rem; // 합계 = (N을 10으로 나눈 나머지)의 누적 합
+
+		}
+		System.out.print(sum); // 합계 출력
+
+	}
+
+}
