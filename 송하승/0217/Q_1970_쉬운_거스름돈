@@ -1,0 +1,79 @@
+package Prof_recommendation;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Q_1970_쉬운_거스름돈 {
+	static int a, b, c, d, e, f, g, h;
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in)); // 입출력 함수 선언
+
+		int TC = Integer.parseInt(br.readLine()); // 반복할 테스트 횟수
+
+		for (int tc = 1; tc <= TC; tc++) { // 반복할 테스트 횟수만큼
+			StringTokenizer st = new StringTokenizer(br.readLine()); // 문자열 띄어쓰기 메서드 선언
+
+			int N = Integer.parseInt(st.nextToken()); // N 입력 받기
+			
+			// 접근 방법 : 주어진 N을 50000, 10000, 5000, 1000, 500, 100, 50, 10으로 나누었을 때 몫을 이용한다.
+			a = 0; // a 초기화
+			b = 0; // b 초기화
+			c = 0; // c 초기화
+			d = 0; // d 초기화
+			e = 0; // e 초기화
+			f = 0; // f 초기화
+			g = 0; // g 초기화
+			h = 0; // h 초기화
+
+			if (N >= 50000) { // N이 50000원 보다 크거나 같을 때,
+				a = N / 50000; // 그 몫을 a에 저장한다.
+				N = N - (50000 * a); // N = 첫 번째 나머지
+
+			}
+
+			if (N >= 10000) { // N이 10000원 보다 크거나 같을 때,
+				b = N / 10000; // 그 몫을 b에 저장한다.
+				N = N - (10000 * b); // N = 두 번째 나머지
+			}
+
+			if (N >= 5000) { // N이 5000원 보다 크거나 같을 때,
+				c = N / 5000; // 그 몫을 c에 저장한다.
+				N = N - (5000 * c); // N = 세 번째 나머지
+			}
+
+			if (N >= 1000) { // N이 1000원 보다 크거나 같을 때,
+				d = N / 1000; // 그 몫을 d에 저장한다.
+				N = N - (1000 * d); // N = 네 번째 나머지
+			}
+
+			if (N >= 500) { // N이 500원 보다 크거나 같을 때,
+				e = N / 500; // 그 몫을 e에 저장한다.
+				N = N - (500 * e); // N = 다섯 번째 나머지
+			}
+
+			if (N >= 100) { // N이 100원 보다 크거나 같을 때,
+				f = N / 100; // 그 몫을 f에 저장한다.
+				N = N - (100 * f); // N = 여섯 번째 나머지
+			}
+
+			if (N >= 50) { // N이 50원 보다 크거나 같을 때,
+				g = N / 50; // 그 몫을 g에 저장한다.
+				N = N - (50 * g); // N = 일곱 번째 나머지
+			}
+
+			if (N >= 10) { // N이 10원 보다 크거나 같을 때,
+				h = N / 10; // 그 몫을 h에 저장한다.
+				N = N - (10 * h); // N = 여덟 번째 나머지
+			}
+			System.out.println("#" + tc); // 테스트 케이스 번호 출력
+			System.out.println(a + " " + b + " " + c + " " + d + " " + e + " " 
+			+ f + " " + g + " " + h + " "); // 몫 출력
+
+		}
+
+	}
+
+}
