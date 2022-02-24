@@ -36,3 +36,29 @@
 - **`#`은 이슈 번호이기 때문에 붙이면 안됩니다!**
   
 <br/>
+
+## ✔️ PR 올리는 법
+**1. 스터디 레포지토리를 fork 한다.**  
+![1](https://user-images.githubusercontent.com/28249948/155487388-279431e5-42bd-443d-b14c-e0de05f89cbb.png)  
+
+**2. fork한 레포지토리를 내 로컬에서 clone 한다.**  
+- 레포지토리 주소를 복사해주고
+![1](https://user-images.githubusercontent.com/28249948/155487857-95f0184f-2daf-4c39-9648-fc14d945982f.png)
+- 자신이 원하는 폴더에서 `git clone [복사한 주소]` 명령어를 입력한다.
+  ![image](https://user-images.githubusercontent.com/28249948/155488570-7fbc84d2-1d7b-44b1-9a67-0bd18cb62250.png)
+
+**3. [자신의 이름] 폴더에서 작업을 하고 내 레포지토리에 푸쉬한다**
+- 새로운 파일을 `[자신의 이름]/[제출날짜]/문제번호` 로 올리고
+![image](https://user-images.githubusercontent.com/28249948/155489499-67301d6f-1069-48dd-8673-7c8129d76964.png)
+- `git add .` `git commit -m "커밋메시지"` `git push` 명령어로 푸쉬한다
+![1](https://user-images.githubusercontent.com/28249948/155490286-41f852e1-85c0-417e-ad88-6c3902ba9759.png)
+
+**4. Pull Request를 올린다** 
+![1](https://user-images.githubusercontent.com/28249948/155490620-0a71251b-dfab-4008-9850-53f64fce852d.png)
+![1](https://user-images.githubusercontent.com/28249948/155490893-035ec10e-b690-45ba-ae46-6267d8bd3f6c.png)
+![1](https://user-images.githubusercontent.com/28249948/155491321-2462434b-b9df-4ae3-afad-2babba992487.png)
+
+**5. 다른 사람의 PR에 가서 신나게 코멘트를 남긴다(팀원의 조언은 곧 나의 영양분)**
+![1](https://user-images.githubusercontent.com/28249948/155491981-1b5a8600-541d-4cbb-ae16-6c27c10f3416.png)
+![1](https://user-images.githubusercontent.com/28249948/155492250-7ef40bb9-f0ad-457d-98d8-5e9e74e7aa86.png)
+
