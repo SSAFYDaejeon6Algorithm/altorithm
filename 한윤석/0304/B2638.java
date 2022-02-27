@@ -8,6 +8,7 @@ import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class B2638 {
+	
 	static int R,C; //행, 열
 	static int ans = 0; //정답
 	static int m[][]; //맵 정보
