@@ -11,7 +11,7 @@ import java.util.Queue;
 public class G1245_farmManagement {
 	
 	static final int peek = 501;	// 탐색한 산봉우리 체크용 (산봉우리 최대 높이=500)
-	static int N, M;
+	static int N, M, cnt = 0;
 	static int[][] map;
 	static boolean[][] visit;
 	static int[] di = {-1, -1, -1, 0, 1, 1, 1, 0};
@@ -27,13 +27,13 @@ public class G1245_farmManagement {
 	}
 	
 	// 해당 격자에서 bfs로 팔방탐색
-	static List<Node> bfs(int i, int j) {
+	static void bfs(int i, int j) {
 		List<Node> list = new ArrayList<>();
 		Queue<Node> queue = new LinkedList<>();
 		queue.add(new Node(i, j));
 		visit[i][j] = true;
 		
-		while(!queue.isEmpty()) {
+		loop : while(!queue.isEmpty()) {
 			Node now = queue.poll();
 			list.add(now);
 			for(int d=0; d<8; d++) {
@@ -42,13 +42,16 @@ public class G1245_farmManagement {
 				if(ni<0 || ni>=N || nj<0 || nj>=M || visit[ni][nj]) continue;
 				if(map[ni][nj] > map[now.i][now.j]) {	// 더 높은 곳 만나면 산봉우리 리스트 비우고 리턴
 					list.clear();
-					return list;
+					break loop;
 				}
 				else if(map[ni][nj] == map[now.i][now.j]) queue.add(new Node(ni, nj));
 				visit[ni][nj] = true;
 			}
 		}
-		return list;
+		if(!list.isEmpty()) {	// 탐색한 산봉우리 표시해두기
+			cnt++;
+			for(Node no: list) map[no.i][no.j] = peek;
+		}
 	}
 	
 	public static void main(String[] args) throws IOException {
@@ -66,18 +69,11 @@ public class G1245_farmManagement {
 			}
 		}
 		
-		int cnt = 0;
 		for(int i=0; i<N; i++) {
 			for(int j=0; j<M; j++) {
 				if(map[i][j] == peek || map[i][j] == 0) continue;	// 이미 탐색한 산봉우리나, 평지 제외
 				visit = new boolean[N][M];
-				List<Node> list = bfs(i, j);	// 탐색된 산봉우리 리스트
-				if(!list.isEmpty()) {
-					cnt++;
-					for(Node no: list) {
-						map[no.i][no.j] = peek;
-					}
-				}
+				bfs(i, j);	// 산봉우리 탐색
 			}
 		}
 		System.out.println(cnt);
