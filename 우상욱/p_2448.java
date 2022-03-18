@@ -19,7 +19,7 @@ public class p_2448 {
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < N; i++) {
 			for (int j = 0; j < 2 * N - 1; j++)
-				sb.append(pic[i][j]);
+				sb.append(pic[i][j] > 0 ? '*' : ' ');
 			sb.append('\n');
 		}
 		System.out.print(sb);
