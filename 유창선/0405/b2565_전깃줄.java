@@ -1,7 +1,6 @@
 package day0405;
 
 import java.util.*;
-import java.io.*;
 
 public class b2565_전깃줄 {
 

@@ -2,6 +2,7 @@ package day0405;
 
 import java.util.Scanner;
 
+// 재 업로드
 public class b10844_쉬운계단수 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
