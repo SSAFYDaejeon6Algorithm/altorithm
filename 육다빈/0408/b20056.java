@@ -62,8 +62,8 @@ public class G20056_sharkFireball {
 				Point now = queue.poll();
 				if(balls[now.i][now.j][k].size()==1) { // 해당 칸에 공이 하나만 들어있는 경우
 					Ball b = balls[now.i][now.j][k].get(0);
-					int ni = (now.i +di[b.d]*b.s +N)%N;
-					int nj = (now.j +dj[b.d]*b.s +N)%N;
+					int ni = (now.i +di[b.d]*b.s%N +N)%N;
+					int nj = (now.j +dj[b.d]*b.s%N +N)%N;
 					if(balls[ni][nj][k+1].size()==0) queue.add(new Point(ni, nj));
 					balls[ni][nj][k+1].add(new Ball(b.m, b.s, b.d));
 					result += b.m;
@@ -82,8 +82,8 @@ public class G20056_sharkFireball {
 					int div_s = sum_s/balls[now.i][now.j][k].size();
 					if(div_m!=0) { // 볼 배분해서 다음 배열에 보내두기
 						for(int d : dir[isDirEq]) {
-							int ni = (now.i + di[d]*div_s + N)%N;
-							int nj = (now.j + dj[d]*div_s + N)%N;
+							int ni = (now.i + di[d]*div_s%N + N)%N;
+							int nj = (now.j + dj[d]*div_s%N + N)%N;
 							if(balls[ni][nj][k+1].size()==0) queue.add(new Point(ni, nj));
 							balls[ni][nj][k+1].add(new Ball(div_m, div_s, d));
 							result += div_m;
