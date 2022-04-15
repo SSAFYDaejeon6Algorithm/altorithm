@@ -1,3 +1,5 @@
+package gold;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -7,7 +9,7 @@ import java.util.List;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class Main {
+public class G17142_lab3 {
 	static int N, M, size, space=0, result=Integer.MAX_VALUE;
 	static int[] list;
 	static int[][] map;
@@ -39,10 +41,10 @@ public class Main {
 					for(int d=0; d<4; d++) {
 						int ni = now.i + di[d];
 						int nj = now.j + dj[d];
-						if(ni<0 || ni>=N || nj<0 || nj>=N || visit[ni][nj] || map[ni][nj]!=0) continue;
+						if(ni<0 || ni>=N || nj<0 || nj>=N || visit[ni][nj] || map[ni][nj]==1) continue;
 						queue.add(new Node(ni, nj));
 						visit[ni][nj] = true;
-						if(++cnt==space) break loop;
+						if(map[ni][nj]==0 && ++cnt==space) break loop;
 					}
 				}
 			}
@@ -76,7 +78,7 @@ public class Main {
 		}
 		size = virus.size();
 		comb(0, 0);
-		System.out.println(result==Integer.MAX_VALUE?-1:result);
+		System.out.println((result==Integer.MAX_VALUE)?-1:result);
 	}
 
 }
