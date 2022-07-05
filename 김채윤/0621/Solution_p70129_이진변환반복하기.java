@@ -1,5 +1,6 @@
 package vac;
 
+
 public class Solution_p70129_이진변환반복하기 {
 
 	public int[] solution(String s) {
